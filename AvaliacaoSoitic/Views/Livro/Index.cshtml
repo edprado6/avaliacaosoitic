@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Dominio.Categoria>
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Livros cadastrados
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-categoria">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Categoria</th>
+                                <th>Data de inserção</th>
+                                <th>Data de alteração</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var categoria in Model)
+                            {
+                                <tr>
+                                    <td>@categoria.categoria_id</td>
+                                    <td>@categoria.nome_categoria</td>
+                                    <td>@categoria.data_insercao</td>
+                                    <td>@categoria.data_alteracao</td>
+                                    <td>                                                                                
+                                        @Html.ActionLink(" Editar", "Edit", "Categoria", new { categoria.categoria_id }, new { @class = "btn btn-warning fa fa-edit", id="btn-edit" })
+                                        @Html.ActionLink(" Detalhes", "Details", "Categoria", new { categoria.categoria_id }, new { @class = "btn btn-success fa fa-search", id = "btn-details" })
+                                        @Html.ActionLink(" Excluir", null, null, new { categoria.categoria_id }, new { @class = "btn btn-danger fa fa-trash-o", data_id = categoria.categoria_id, id = "btn-delete-categoria", href="#"})                                       
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<!-- /.panel-heading -->
+<div class="panel-body">
+    <!-- Button trigger modal -->
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Modal
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Alerta</h4>
+                </div>
+                <div class="modal-body">
+                    Tem certeza que deseja excluir o item selecionado?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="excluir-action">Excluir</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+<!-- .panel-body -->
+
+
