@@ -28,6 +28,10 @@ namespace Aplicacao
             }
         }
 
+        /*
+         * Recebe um autor_id, monta a query e executa o comando da classe Contexto
+         * que não possui retorno.
+         */
         public void Delete(int autor_id)
         {
             var query = "";

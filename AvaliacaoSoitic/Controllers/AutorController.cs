@@ -99,7 +99,8 @@ namespace AvaliacaoSoitic.Controllers
         }
                
         /* POST: /Autor/Delete/5
-         * 
+         * Recebe autor_id e executa o método da aplicação responsável pela
+         * exclusão de elementos.
          */
         [HttpGet]
         public ActionResult Delete(int autor_id)

@@ -7,7 +7,7 @@
 
 $(document).on("click", "#btn-delete-autor", function (event) {
     event.preventDefault();
-    var autor_id = $(this).data('id');
+    var autor_id = $(this).data('id'); 
     $('#excluir-autor-action').data('autor_id', autor_id);
     $('#alertAutorModal').modal('show');
 });
@@ -26,7 +26,7 @@ $(document).ready(function () {
     });
 
     $('#excluir-autor-action').click(function (event) {
-        var autor_id = $(this).data('autor_id');
+        var autor_id = $(this).data('autor_id'); 
         document.location = '../autor/delete?autor_id=' + autor_id;        
     });
     
