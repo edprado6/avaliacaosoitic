@@ -87,7 +87,6 @@ namespace AvaliacaoSoitic.Controllers
 
         //
         // POST: /Livro/Delete/5
-
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

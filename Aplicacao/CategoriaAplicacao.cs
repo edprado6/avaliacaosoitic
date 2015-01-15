@@ -22,7 +22,7 @@ namespace Aplicacao
             var query = "";
             query += "INSERT INTO categoria (nome_categoria)";
             query += string.Format("VALUES ('{0}') ", categoria.nome_categoria);
-            // O objeto é destruído após ser usado. Chama o método Dispose.
+            // O objeto é destruído após ser usado.
             using (contexto = new Contexto())
             {
                 contexto.ExecutaComando(query);
@@ -30,13 +30,13 @@ namespace Aplicacao
         }
 
 
-        public void Update(Categoria categoria, int categoria_id)
+        public void Update(Categoria categoria)
         {
             var query = "";
             query += "UPDATE categoria SET ";
             query += string.Format("nome_categoria = '{0}', ", categoria.nome_categoria);
             query += string.Format("data_alteracao = getdate() ");
-            query += string.Format(" WHERE categoria_id = '{0}' ", categoria_id);
+            query += string.Format(" WHERE categoria_id = '{0}' ", categoria.categoria_id);
             using (contexto = new Contexto())
             {
                 contexto.ExecutaComando(query);
@@ -54,8 +54,19 @@ namespace Aplicacao
             }
         }
 
+        public Categoria ListarPorId(int categoria_id)
+        {   
+            using (contexto = new Contexto())
+            {
+                var query = "";
+                query += "SELECT * FROM categoria ";
+                query += string.Format("WHERE categoria_id = '{0}' ", categoria_id);
+                var retornoDataReader = contexto.ExecutaComandoRetorno(query);
+                return TransformaReaderEmListaDeObjetos(retornoDataReader).FirstOrDefault(); 
+            }
+        }
 
-        public List<Categoria> ListarTodos()
+        public List<Categoria>ListarTodos()
         {
             using (contexto = new Contexto())
             {

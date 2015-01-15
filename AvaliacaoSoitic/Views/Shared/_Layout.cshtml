@@ -6,21 +6,21 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <!-- CSS inserido -->   
+    <!-- CSS inserido -->
     <!-- Bootstrap Core CSS -->
     @Styles.Render("~/Content/bower_components/bootstrap/dist/css/bootstrap.min.css")
     <!-- MetisMenu CSS -->
-    @Styles.Render("~/Content/bower_components/metisMenu/dist/metisMenu.min.css")    
-    
+    @Styles.Render("~/Content/bower_components/metisMenu/dist/metisMenu.min.css")
+
     <!-- DataTables CSS -->
     @Styles.Render("~/Content/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css")
-    
+
     <!-- DataTables Responsive CSS -->
     @Styles.Render("~/Content/bower_components/datatables-responsive/css/dataTables.responsive.css")
-    
-    <!-- Custom CSS -->    
-    @Styles.Render("~/Content/dist/css/sb-admin-2.css")      
-    <!-- Custom Fonts -->    
+
+    <!-- Custom CSS -->
+    @Styles.Render("~/Content/dist/css/sb-admin-2.css")
+    <!-- Custom Fonts -->
     @Styles.Render("~/Content/bower_components/font-awesome/css/font-awesome.min.css")
 
 
@@ -40,7 +40,7 @@
                 </button>
                 <a class="navbar-brand" href="index.html">Avaliação Soitic</a>
             </div><!-- /.navbar-header -->
-              
+
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -48,42 +48,43 @@
                         <li>
                             <a href="#"><i class="fa fa-book"></i> Livros<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li> 
-                                    <a href="flot.html"><i class="fa fa-list "></i> Listar</a>
+                                <li>
+                                    <a href="/livro/index"><i class="fa fa-list "></i> Listar</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html"><i class="fa  fa-plus"></i> Adicionar</a>
+                                    <a href="/livro/create"><i class="fa  fa-plus"></i> Adicionar</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li> 
-                        
+                        </li>
+
                         <li>
                             <a href="#"><i class="fa  fa-user"></i> Autores<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html"><i class="fa fa-list "></i> Listar</a>
+                                    <a href="/autor/index"><i class="fa fa-list "></i> Listar</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html"><i class="fa  fa-plus"></i> Adicionar</a>
+                                    <a href="/autor/create"><i class="fa  fa-plus"></i> Adicionar</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>  
-                        
+                        </li>
+
                         <li>
                             <a href="#"><i class="fa  fa-tasks"></i> Categorias<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html"><i class="fa fa-list "></i> Listar</a>
+
+                                    <a href="/categoria/index"><i class="fa fa-list "></i> Listar</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html"><i class="fa  fa-plus"></i> Adicionar</a>
+                                    <a href="/categoria/create"><i class="fa  fa-plus"></i> Adicionar</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>  
-                               
+                        </li>
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -94,47 +95,44 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Avaliação Soitic</h1>
-                   
-                     @RenderBody() 
+                    <h1 class="page-header">
+                        @ViewBag.Title                        
+                    </h1>
+                    
+                    @if (TempData["mensagem"] != null)
+                    {
+                        <div class="@TempData["classe"]">
+                            <h4><i class="@TempData["icone"]"></i>@TempData["mensagem"]</h4>
+                        </div>
+                    }
+
+                    @RenderBody()
 
                 </div><!-- /.col-lg-12 -->
-
-                
-                    
-                        
-                  
-              
-
-            </div><!-- /.row -->        
+            </div><!-- /.row -->
         </div><!-- /#page-wrapper -->
     </div>
 
-
-   
-
     @Scripts.Render("~/bundles/jquery")
-    
-    <!-- JS inserido -->    
+
+    <!-- JS inserido -->
     <!-- jQuery -->
     @Scripts.Render("~/Content/bower_components/jquery/dist/jquery.min.js")
-    <!-- Bootstrap Core JavaScript -->    
-    @Scripts.Render("~/Content/bower_components/bootstrap/dist/js/bootstrap.min.js")  
-    <!-- Metis Menu Plugin JavaScript -->    
+    <!-- Bootstrap Core JavaScript -->
+    @Scripts.Render("~/Content/bower_components/bootstrap/dist/js/bootstrap.min.js")
+    <!-- Metis Menu Plugin JavaScript -->
     @Scripts.Render("~/Content/bower_components/metisMenu/dist/metisMenu.min.js")
 
     <!-- DataTables JavaScript -->
     @Scripts.Render("~/Content/bower_components/DataTables/media/js/jquery.dataTables.min.js")
     @Scripts.Render("~/Content/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js")
-    
-    <!-- Custom Theme JavaScript -->   
+
+    <!-- Custom Theme JavaScript -->
     @Scripts.Render("~/Content/dist/js/sb-admin-2.js")
 
     @Scripts.Render("~/Scripts/custom.js")
     <!-- ----------- -->
-
     @RenderSection("scripts", required: false)
-
-    
 </body>
 </html>
+

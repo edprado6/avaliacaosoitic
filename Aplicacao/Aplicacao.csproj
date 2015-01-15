@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutorAplicacao.cs" />
     <Compile Include="CategoriaAplicacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
